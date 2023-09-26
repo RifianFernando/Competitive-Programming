@@ -1,0 +1,9 @@
+Explain of the case:
+this case is the hex prime where the all prime number if u +6 will be check there's a prime number too or not
+example: 5(prime number) + 6 = 11 -> it's prime number too
+
+
+How to solve it?
+in this section I use pre compute for prob a hex prime to generate first the prime number and what prime number that is true
+
+so I decide to pre compute the true or false prime array, and what array that is a prime number.
