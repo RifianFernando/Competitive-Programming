@@ -4,4 +4,15 @@ the output will be yes
 
 
 How to solve it?
+there's have 2 ways to solve it:
+1. U can find how many divisors are the numbers have (this method not optimal and got memory limit) -> on Vjudge and got time limit in codeforces
+2. I solve with pre compute sieve, and using rules to find the tprimes  
+    U can find t primes by 3 rules:
+    a. Calculate the square root: The square root of 999966000289 is approximately 999983.000289.
 
+    b. Check if it's an integer: The square root is not an integer; it has a fractional part.
+
+    c. Check for three distinct divisors: To be Т-prime, a number must have exactly three distinct positive divisors.
+        1. One divisor is 1.
+        2. The number itself (999966000289) is another divisor.
+        3. The third divisor must be a prime number.
