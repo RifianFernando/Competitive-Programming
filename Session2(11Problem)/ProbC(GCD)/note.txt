@@ -1,0 +1,29 @@
+Explain of the case:
+This case is tell about GCD (Greatest Common Divisor) where there have 2 input number example
+divisors of:
+24 and 36
+the greatest divisors of the two number is 12 (from 2 * 2 * 3 = 12)
+
+or we can search from listing the factor like:
+  24
+-------  
+1 | 24
+2 | 12
+3 | 6
+4 | 6
+
+  36
+-------  
+1 | 36
+2 | 18
+3 | 12
+4 | 9
+6 | 6
+
+24 = 1, 2, 3, 4, 6, 8, 12(biggest & same), 24
+36 = 1, 2, 3, 4, 6, 9, 12(biggest & same), 18, 36
+
+so the greatest common divisor is 12
+
+How to solve it?
+
