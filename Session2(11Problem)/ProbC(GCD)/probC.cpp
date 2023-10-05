@@ -2,36 +2,40 @@
 
 using namespace std;
 
-long long findDivisors(long n) {
-    long long count = 0;
-    for (long i = 1; i < int(sqrt(n) + 1); i++) {
-        if (n % i == 0) {
-            count++;
-            if (i != n / i) {
-                count++;
-            }
-        }
+// map<long long, long long> primeFactorization(long long N) { // O(sqrt(N))
+// 	map<long long, long long> cnt;
+// 	for (long long i = 2; i*i <= N; i++) {
+// 		while (N % i == 0) {
+// 			cnt[i]++;
+// 			N /= i;
+// 		}
+// 	}
+// 	if (N != 1) cnt[N]++;
+// 	return cnt;
+// }
+
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
     }
-    return count;
+    return gcd(b, a % b);
 }
 
-long long answerArray[1000005];
-void preCompute (){
-    for (int i = 1; i <= 1000; i++) {
-        answerArray[i] = findDivisors(i);
-    }
-}
+// int findGCD(vector<string>& arr) {
+//     int result = stoi(arr[0]);
+    
+//     for(int i = 1; i < arr.size(); i++) {
+//         result = gcd(result, stoi(arr[i]));
+//     }
+    
+//     return result;
+// }
 
 int main() {
-    preCompute();
-	long long a; cin >> a;
-	for (int i = 0; i < a; i++) {
-		long long b; cin >> b;
-        if (answerArray[b] == 3) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
-        }
-	}
+    string b; cin >> b;
+    string c; cin >> c;
+    vector<string> arr = {b, c};
+    int result = findGCD(arr);
+    cout << result << endl;
     return 0;
 }

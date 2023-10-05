@@ -26,4 +26,18 @@ or we can search from listing the factor like:
 so the greatest common divisor is 12
 
 How to solve it?
+Usahakan mulai dari mikir dan observasi atau mikir coding stepnya
+karena belum tentu GCD codingannya,
+jadi kalo outputnya sama dengan cara lain itu fine fine aja
+
+kita bisa menggunakan lemma, 
+jadi kita breakdown satu satu menggunakan lemma,
+GCD(X, X+1) = 1
+
+Proof by contradction
+GCD(X, X+1) = K > 1
+k habis membagi x dan x+1
+
+
+input dan output dapat menyebabkan lambat
 

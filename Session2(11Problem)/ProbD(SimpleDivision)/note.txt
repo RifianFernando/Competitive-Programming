@@ -1,0 +1,7 @@
+Misal jawaban
+A[1] = D*? +R
+A[2] = D*? +R
+A[3] = D*? +R
+...
+
+A[2] - A[1] = D * ?

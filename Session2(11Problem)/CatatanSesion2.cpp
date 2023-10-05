@@ -35,9 +35,6 @@ void generatePrime(int N){
 			prime[j] = false;
 		}
 	}
-	for (int i = 1; i<= N; i++){
-		
-	}
 }
 
 int SPF[10000005];
