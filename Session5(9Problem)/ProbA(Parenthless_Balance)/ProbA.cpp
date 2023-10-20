@@ -13,17 +13,23 @@ bool isBalanced(const string& s) {
     for (char c : s) {
         if (c == '(' || c == '[' || c == '{') {
             // Push opening parentheses onto the stack
+            // cout << "setelah divalidasi: ";
+            // cout << c << endl;
             parenthesesStack.push(c);
         } else if (c == ')' || c == ']' || c == '}') {
+            // cout << "setelah divalidasi: c == ')' || c == ']' || c == '}': ";
+            // cout << c << endl;
             // Check for matching opening parentheses on the stack
             if (parenthesesStack.empty() || parenthesesStack.top() != parenthesesMap[c]) {
+                // cout << "setelah divalidasi: c == ')' || c == ']' || c == '}':  dan kalo ga sama: "<< endl;
+                // cout << parenthesesStack.top() << endl;
                 return false;  // Unmatched closing parentheses
             }
             parenthesesStack.pop();  // Matched, pop the opening parentheses
         }
     }
 
-    return parenthesesStack.empty();  // Stack should be empty for balanced parentheses
+    return parenthesesStack.empty();  // it will return true if the stack is empty
 }
 
 int main() {
