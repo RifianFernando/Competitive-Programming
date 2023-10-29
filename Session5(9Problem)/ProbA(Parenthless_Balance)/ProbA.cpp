@@ -8,6 +8,7 @@ bool isBalanced(const string& s) {
         {')', '('},
         {']', '['}
         // Add more mappings if needed
+        // (())[]([)] -> The output should be yes but the output is no
     };
 
     if (s.size() % 2 == 1) return false;  // Odd length strings are not balanced
@@ -25,11 +26,11 @@ bool isBalanced(const string& s) {
             if (it == parenthesesStack.end()) {
                 return false;// Unmatched closing parentheses
             }
-            for (auto it = parenthesesStack.rbegin(); it != parenthesesStack.rend(); ++it) {
-                cout << *it << " ";
-            }
-            cout << endl;
-            // parenthesesStack.erase(it.base() - 1);  // Matched, pop the opening parentheses
+            // for (auto it = parenthesesStack.rbegin(); it != parenthesesStack.rend(); ++it) {
+            //     cout << *it << " ";
+            // }
+            // cout << endl;
+            parenthesesStack.erase(it);  // Matched, pop the opening parentheses
         }
     }
 
@@ -44,19 +45,25 @@ bool isBalanced2(const string& s) {
         {'[', 0}
         // Add more mappings if needed
     };
+    return true;
 }
 
 int main() {
-    int n; cin >> n;
+    int n; cin >> n;cin.ignore();
 
     for (int i = 0; i < n; i++) {
-        string inputString;
-        cin >> inputString;
+        string inputString; // Ignore the newline character before reading the string
+        getline(cin, inputString);
         
-        if (isBalanced(inputString)) {
+        if (inputString.size() == 0) {
             cout << "Yes" << endl;
-        } else {
-            cout << "No" << endl;
+            continue;
+        } else{
+            if (isBalanced(inputString)) {
+                cout << "Yes" << endl;
+            } else {
+                cout << "No" << endl;
+            }
         }
     }
 
