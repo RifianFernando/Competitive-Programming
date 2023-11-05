@@ -2,45 +2,35 @@
 
 using namespace std;
 
-pair<int, int> find_balance(const vector<int>& student, int rating) {
-    int n = student.size();
-    int count = 0;
-    int max_team_rating = -1;
+struct Team {
+    string name;
+    string institution;
+    int rank;
+};
 
-    for (int i = 0; i < n - 2; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            for (int k = j + 1; k < n; k++) {
-                vector<int> teamRatings = {student[i], student[j], student[k]};
-                int teamRating = accumulate(teamRatings.begin(), teamRatings.end(), 0);
-                int ratingDifference = *max_element(teamRatings.begin(), teamRatings.end()) - *min_element(teamRatings.begin(), teamRatings.end());
+pair<int, vector<string>> find_champion(const vector<Team>& teams, int M, int K) {
+    int n = teams.size();
+    int countTeamWinner = 0;
+    vector<string> teamWinner;
 
-                if (ratingDifference <= rating) {
-                    count++;
-                    max_team_rating = max(max_team_rating, teamRating);
-                }
-            }
-        }
-    }
-
-    return {count, max_team_rating};
+    return {countTeamWinner, teamWinner};
 }
 
 int main () {
-    int diff, rating;
-    cin >> diff; cin >> rating;
+    int N, M, K;
+    cin >> N >> M >> K;
 
-    vector<int> arr;
-    for (int i = 0; i < diff; i++) {
-        int temp;
-        cin >> temp;
-        arr.push_back(temp);
+    vector<Team> teams(N);
+    for (int i = 0; i < N; i++) {
+        cin >> teams[i].name >> teams[i].institution;
+        teams[i].rank = i + 1;
     }
 
-    pair<int, int> result = find_balance(arr, rating);
-    if (result.first > 0) {
-        cout << result.first << " " << result.second << endl;
-    } else {
-        cout << result.second << endl;
+    auto result = find_champion(teams, M, K);
+    cout << result.first << endl;
+
+    for (const auto& s : result.second) {
+        cout << s << endl;
     }
 
 
